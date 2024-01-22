@@ -14,15 +14,14 @@ router.get("/",(req,res)=>{
 
   // Update the code here
 
-  res.send(JSON.stringify({firends}, null, 4));//This line is to be replaced with actual return value
+  res.send(JSON.stringify({friends}, null, 4));//This line is to be replaced with actual return value
 });
 
 // GET by specific ID request: Retrieve a single friend with email ID
-router.get("/:email",(req,res)=>{
-  const email = req.body.email;
-  let filtered_friends = friends.filter((friend)=> friend.email === email);
-  res.send(filtered_friends);//This line is to be replaced with actual return value
-});
+router.get('/:email',function (req, res) {
+  const email = req.params.email;
+  res.send(friends[email])
+  });
 
 
 // POST request: Add a new friend
